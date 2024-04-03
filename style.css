@@ -83,6 +83,7 @@ header {
     width: 200px; /* Gambar akan mengisi lebar yang tersedia */
     height: auto;
     float: left;
+    border-radius: 50%;
 }
 
 /* Style galery */
