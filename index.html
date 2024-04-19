@@ -21,14 +21,27 @@
         <li class="points"><a href="#Blog">Blog</a></li>
         <li class="points"><a href="#Contact">Contact</a></li>
       </ul>
+      <select
+        class="button"
+        id="modeSelector"
+        onchange="changeBackground(this.value)"
+      >
+        <option value="dark">Dark mode</option>
+        <option value="light">Light mode</option>
+      </select>
+      <select class="button" onchange="changeLanguage(this.value)">
+        <option value="idn">Indonesia</option>
+        <option value="en">English</option>
+      </select>
     </nav>
+
     <header class="container">
       <div class="pengenalan" id="Home">
         <span class="blur"></span>
         <span class="blur"></span>
-        <h4>Pengenalan</h4>
-        <h1>Halo, saya Hizkia Polii</h1>
-        <p>
+        <h4 id="pengenalan">Pengenalan</h4>
+        <h1 id="nama">Halo, saya Hizkia Polii</h1>
+        <p id="deskripsi1">
           seorang mahasiswa yang tengah menempuh pendidikan di Universitas Sam
           Ratulangi, tepatnya di Fakultas Teknik, Jurusan Elektro dengan program
           studi Informatika. Saya bersemangat dalam menggali pengetahuan dan
@@ -37,7 +50,7 @@
           di masa depan.
         </p>
         <br />
-        <p>
+        <p id="deskripsi2">
           Ini adalah personal homepage pertama saya, dan saya masih belajar cara
           membuat personal homepage yang menarik dan terstruktur. Saya sedang
           menggali pengetahuan tentang desain web dan mencoba berbagai teknik
@@ -53,35 +66,63 @@
     </header>
 
     <section class="galeri">
-      <h2 class="header" id="Gallery">Gallery</h2>
-      <div class="foto">
-        <div class="isi">
-          <span>
-            <img src="Picture/Kocheng.jpg" />
-          </span>
+      <h2 class="header" id="Gallery">Galeri</h2>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 7</div>
+          <img src="Picture/Myself.jpg" style="width: 100%" />
+          <div class="text">MySelf</div>
         </div>
-        <div class="isi">
-          <span>
-            <img src="Picture/huhuhu.jpg" />
-          </span>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 7</div>
+          <img src="Picture/Kocheng.jpg" style="width: 100%" />
+          <div class="text">My pet</div>
         </div>
-        <div class="isi">
-          <span>
-            <img src="Picture/Hujan.jpg" />
-          </span>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 7</div>
+          <img src="Picture/Kocheng2.jpg" style="width: 100%" />
+          <div class="text">My pet too</div>
         </div>
-        <div class="isi">
-          <span>
-            <img src="Picture/Senja.jpg" />
-          </span>
-          <span class="blur"></span>
-          <span class="blur"></span>
+
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 7</div>
+          <img src="Picture/huhuhu.jpg" style="width: 100%" />
+          <div class="text">Best football club</div>
         </div>
-        <div class="isi">
-          <span>
-            <img src="Picture/Pohon.jpg" />
-          </span>
+
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 7</div>
+          <img src="Picture/Hujan.jpg" style="width: 100%" />
+          <div class="text">Rain</div>
         </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">6 / 7</div>
+          <img src="Picture/Senja.jpg" style="width: 100%" />
+          <div class="text">Sunset</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">7 / 7</div>
+          <img src="Picture/Pohon.jpg" style="width: 100%" />
+          <div class="text">Woods</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+      <br />
+
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
       </div>
     </section>
 
@@ -92,7 +133,7 @@
       <div class="blog1">
         <div class="gambar">
           <div class="artikel">
-            <h4>
+            <h4 id="artikel1">
               Liga Spanyol: Barcelona Tak Akan Iri jika Kylian Mbappe Gabung
               Real Madrid
             </h4>
@@ -100,6 +141,7 @@
             <p>
               <a
                 href="https://www.bola.com/spanyol/read/5557074/liga-spanyol-barcelona-tak-akan-iri-jika-kylian-mbappe-gabung-real-madrid"
+                id="link"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -107,13 +149,14 @@
         </div>
         <div class="gambar">
           <div class="artikel">
-            <h4>
+            <h4 id="artikel2">
               Sopulut, Olahan dari Alam yang Jadi Kuliner Khas Sulawesi Utara
             </h4>
             <img src="Picture/Sopulut.jpg" />
             <p>
               <a
                 href="https://www.liputan6.com/regional/read/5209135/sopulut-olahan-dari-alam-yang-jadi-kuliner-khas-sulawesi-utara"
+                id="link2"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -121,13 +164,14 @@
         </div>
         <div class="gambar">
           <div class="artikel">
-            <h4>
+            <h4 id="artikel3">
               GTA 6 Akhirnya Muncul di Situs Rockstar Games, Siap Rilis 2025
             </h4>
             <img src="Picture/GTA.jpg" />
             <p>
               <a
                 href="https://www.liputan6.com/tekno/read/5549266/gta-6-akhirnya-muncul-di-situs-rockstar-games-siap-rilis-2025"
+                id="link3"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -137,11 +181,14 @@
       <div class="blog2">
         <div class="gambar">
           <div class="artikel">
-            <h4>Fakta-fakta Apple Vision Pro, Simak Kecanggihannya</h4>
+            <h4 id="artikel4">
+              Fakta-fakta Apple Vision Pro, Simak Kecanggihannya
+            </h4>
             <img src="Picture/Apple.jpg" />
             <p>
               <a
                 href="https://www.cnnindonesia.com/teknologi/20240205191559-185-1058994/fakta-fakta-apple-vision-pro-simak-kecanggihannya"
+                id="link4"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -149,11 +196,14 @@
         </div>
         <div class="gambar">
           <div class="artikel">
-            <h4>Apa itu Cryptocurrency dan bagaimana cara kerjanya?</h4>
+            <h4 id="artikel5">
+              Apa itu Cryptocurrency dan bagaimana cara kerjanya?
+            </h4>
             <img src="Picture/crypto.jpg" />
             <p>
               <a
                 href="https://www.kaspersky.com/resource-center/definitions/what-is-cryptocurrency"
+                id="link5"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -161,11 +211,12 @@
         </div>
         <div class="gambar">
           <div class="artikel">
-            <h4>Esports Resmi jadi Olahraga Prestasi</h4>
+            <h4 id="artikel6">Esports Resmi jadi Olahraga Prestasi</h4>
             <img src="Picture/esport.jpg" />
             <p>
               <a
                 href="https://indonesiabaik.id/infografis/esports-resmi-jadi-olahraga-prestasi"
+                id="link6"
                 >Baca selengkapnya disini</a
               >
             </p>
@@ -173,7 +224,6 @@
         </div>
       </div>
     </section>
-
     <footer class="container" id="Contact">
       <div class="kolom">
         <div class="nama">
@@ -181,7 +231,7 @@
         </div>
       </div>
       <div class="kolom">
-        <h4>Contact me</h4>
+        <h4 id="kontak">Kontak saya</h4>
         <p>+62895336109477</p>
       </div>
       <div class="kolom">
@@ -189,7 +239,7 @@
         <p>@hizkiapolii026@student.unsrat.ac.id</p>
       </div>
       <div class="kolom">
-        <h4>Sosial media</h4>
+        <h4 id="sosmed">Media sosial</h4>
         <span class="blur"></span>
         <span class="blur"></span>
         <a href="https://www.facebook.com/hizkia.polii.1"
