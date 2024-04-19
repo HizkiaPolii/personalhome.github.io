@@ -23,7 +23,7 @@ function changeBackground(mode) {
 function changeLanguage(lang) {
   if (lang === "en") {
     document.getElementById("pengenalan").innerText = "Introduction";
-    document.getElementById("nama").innerText = "Hello, Iam Hizkia Polii";
+    document.getElementById("nama").innerText = "Hello, I'am Hizkia Polii";
     document.getElementById("deskripsi1").innerText =
       "a student currently pursuing my education at Sam Ratulangi University, specifically in the Faculty of Engineering, Department of Electrical Engineering with a focus on Informatics. I am enthusiastic about exploring knowledge and skills in the field of information technology and aspire to make meaningful contributions to the development of technology in the future.";
     document.getElementById("deskripsi2").innerText =
@@ -81,8 +81,8 @@ function changeLanguage(lang) {
 }
 
 // sintaks untuk slideshow pada galeri
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 0; // Ubah slideIndex menjadi 0
+showSlides();
 
 function plusSlides(n) {
   showSlides((slideIndex += n));
@@ -92,15 +92,17 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
-function showSlides(n) {
+function showSlides() {
+  // Menghapus parameter n
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
+  if (slideIndex >= slides.length) {
+    // Ganti '>' dengan '>='
+    slideIndex = 0; // Atur slideIndex kembali ke 0
   }
-  if (n < 1) {
-    slideIndex = slides.length;
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1; // Atur slideIndex ke slides.length - 1
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
@@ -108,6 +110,8 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  slides[slideIndex].style.display = "block"; // Hapus -1 di sini
+  dots[slideIndex].className += " active"; // Hapus -1 di sini
+  slideIndex++; // Tambahkan untuk menggeser ke slide berikutnya
+  setTimeout(showSlides, 4000); // Ganti 2000 dengan durasi (dalam milidetik) yang diinginkan
 }
